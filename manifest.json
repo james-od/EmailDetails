@@ -3,7 +3,7 @@
 	"name": "x",
 	"version": "1.0",
 	"description": "Finds emails in a page and gives information about the email owner",
-	"content_scripts": 
+	"content_scripts":
 	[
 		{
 			"matches": ["*://*/*"],
