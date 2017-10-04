@@ -1,5 +1,6 @@
 walk(document.body);
 
+
 function walk(node)
 {
 	// I stole this function from here:
@@ -27,6 +28,12 @@ function walk(node)
 	}
 }
 
+function getBlackListed(){
+	
+	var blackListed = ["james88od@gmail.com", "gregbrimble26@gmail.com"]
+	return blackListed
+}
+
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -36,8 +43,15 @@ function httpGet(theUrl)
 }
 
 function validateEmail(email) {
+
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    validEmail = re.test(email)
+    if(validEmail){
+    	if(getBlackListed().indexOf(email) > -1){
+    		return false
+    	}
+    	return validEmail
+    }
 }
 
 function handleText(textNode)
