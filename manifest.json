@@ -1,0 +1,14 @@
+{
+	"manifest_version": 1,
+	"name": "x",
+	"version": "1.0",
+	"description": "Finds emails in a page and gives information about the email owner",
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["content_script.js"],
+			"run_at": "document_end"
+		}
+	]
+}
