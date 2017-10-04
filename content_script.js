@@ -45,12 +45,22 @@ function handleText(textNode)
 	var v = textNode.nodeValue;
 
 	if(validateEmail(v)){
-		modal = document.createElement('dialog')
-		modal.innerHTML = httpGet("https://c4a6f2a7.ngrok.io/lookup_by_email?email=" + v)
-		document.body.appendChild(modal);
-		modal.showModal();
+		alert(v);
+		datatooltipcontent = document.createAttribute("data-tooltip-content");
+		datatooltipcontent.value = "#email";
+		textNode.parentNode.setAttributeNode(datatooltipcontent);
+		jQuery(textNode.parentNode).addClass('tooltip');
 
+		templates = document.createElement('div');
+		jQuery(templates).addClass('tooltip_templates');
+		emailtemplate = document.createElement('div');
+		emailtemplate.innerHTML = httpGet("https://c4a6f2a7.ngrok.io/lookup_by_email?email=" + v);
+		emailtemplate.id = "email";
 
+		templates.appendChild(emailtemplate);
+		document.body.appendChild(templates);
+
+		$('.tooltip').tooltipster();
 	}
 
 	v = v.replace(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, "BUTT");
