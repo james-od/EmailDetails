@@ -11,5 +11,10 @@
 			"css": ["tooltipster/dist/css/tooltipster.bundle.min.css"],
 			"run_at": "document_end"
 		}
-	]
+
+	],
+	"permissions": 
+	[
+    	"storage"
+    ]
 }
