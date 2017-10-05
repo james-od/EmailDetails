@@ -69,7 +69,6 @@ function handleText(textNode)
 	var v = textNode.nodeValue;
 
 	if(validateEmail(v)){
-		alert(v);
 		datatooltipcontent = document.createAttribute("data-tooltip-content");
 		datatooltipcontent.value = "#email";
 		textNode.parentNode.setAttributeNode(datatooltipcontent);
